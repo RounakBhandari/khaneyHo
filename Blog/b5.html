@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comfort Foods with a Healthy Twist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="comfort-foods.css">
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  background: #f7f6f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav div {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2C752A;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #217c1e;
+}
+
+/* Header */
+.main-header {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+.main-header h1 {
+  font-size: 50px;
+  color: #2C752A;
+  margin-bottom: 20px;
+}
+
+.main-header p {
+  font-size: 20px;
+}
+
+/* Dish sections */
+.dish-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #e6f2d9;
+  border-radius: 20px;
+}
+
+.dish-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.dish-image img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.dish-text h2 {
+  font-size: 28px;
+  color: #2C752A;
+  margin-bottom: 15px;
+}
+
+.dish-text p {
+  font-size: 18px;
+}
+.watermark {
+  position: fixed;       
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: rgba(33,124,30,0.2); 
+  font-weight: 600;
+  pointer-events: none;  
+  z-index: 1000;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+</style>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div>MyWebsite</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Recipes</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="main-header">
+    <h1>Comfort Foods with a Healthy Twist</h1>
+    <p>Love burgers, fries, and pizza? Learn how to make guilt-free, nutritious versions of your favorite comfort foods without compromising on taste.</p>
+  </header>
+
+  <!-- Dish Sections -->
+  <section class="dish-section">
+    <div class="dish-image">
+      <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1013&auto=format&fit=crop" alt="Sweet Potato Fries">
+    </div>
+    <div class="dish-text">
+      <h2>Baked Sweet Potato Fries</h2>
+      <p>Instead of deep-fried potatoes, slice sweet potatoes, toss with olive oil, paprika, and bake until crispy. Full of vitamins and fiber, but still crispy and delicious!</p>
+    </div>
+  </section>
+
+  <section class="dish-section reverse">
+    <div class="dish-image">
+      <img src="https://images.unsplash.com/photo-1650947809364-a4e4f88d2e56?q=80&w=663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cauliflower Pizza Crust">
+    </div>
+    <div class="dish-text">
+      <h2>Cauliflower Pizza Crust</h2>
+      <p>Swap regular dough for a cauliflower-based crust. Bake until golden and top with tomato sauce, veggies, and light cheese for a nutrient-packed pizza night.</p>
+    </div>
+  </section>
+
+  <section class="dish-section">
+    <div class="dish-image">
+      <img src="https://plus.unsplash.com/premium_photo-1695758787784-d85c1e00ac82?q=80&w=717&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Grilled Veggie Burgers">
+    </div>
+    <div class="dish-text">
+      <h2>Grilled Veggie Burgers</h2>
+      <p>Replace beef patties with black bean or lentil patties. Grill them lightly, top with avocado, lettuce, and whole grain buns for a hearty but healthy burger.</p>
+    </div>
+  </section>
+
+  <section class="dish-section reverse">
+    <div class="dish-image">
+      <img src="https://images.unsplash.com/photo-1589227365423-d87e646beaac?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zucchini Noodles">
+    </div>
+    <div class="dish-text">
+      <h2>Zucchini Noodles (Zoodles)</h2>
+      <p>Replace traditional pasta with spiralized zucchini. Toss with your favorite sauces and toppings. Lower carbs, more fiber, and just as satisfying!</p>
+    </div>
+  </section>
+
+  <section class="dish-section">
+    <div class="dish-image">
+      <img src="https://images.unsplash.com/photo-1608301631297-8ea0aca71899?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Baked Mac & Cheese">
+    </div>
+    <div class="dish-text">
+      <h2>Baked Mac & Cheese with Hidden Veggies</h2>
+      <p>Boost your macaroni with pureed cauliflower or butternut squash in the cheese sauce. Creamy, comforting, and sneaky veggies included!</p>
+    </div>
+  </section>
+
+</body>
+<div class="watermark">© Binishaan Basnet</div>
+</html>

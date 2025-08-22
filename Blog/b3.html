@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget-Friendly Meals for Busy Weeknights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="budget-meals-cards.css">
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  background: #f7f6f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav div {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2C752A;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #217c1e;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+header h1 {
+  font-size: 50px;
+  color: #2C752A;
+  margin-bottom: 20px;
+}
+
+header p {
+  font-size: 20px;
+}
+
+header p span {
+  color: #217c1e;
+  font-weight: 600;
+}
+
+/* Cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  color: #2C752A;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 15px;
+  line-height: 1.4;
+}
+.watermark {
+  position: fixed;       
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: rgba(33,124,30,0.2); 
+  font-weight: 600;
+  pointer-events: none;  
+  z-index: 1000;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+</style>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div>MyWebsite</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Recipes</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Budget-Friendly Meals for Busy Weeknights</h1>
+    <p>Quick and affordable meals that save time and keep everyone satisfied. Learn how to plan, prep, and cook <span>tasty weeknight dinners</span> on a budget.</p>
+  </header>
+
+  <!-- Cards Container -->
+  <section class="cards-container">
+
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1013&auto=format&fit=crop" alt="Veggie Pasta">
+      </div>
+      <div class="card-content">
+        <h3>One-Pot Veggie Pasta</h3>
+        <p>Cook pasta with seasonal vegetables, garlic, and canned tomatoes in one pot. Top with cheese for a quick and filling meal.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1646809156467-6e825869b29f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Chicken Rice Skillet">
+      </div>
+      <div class="card-content">
+        <h3>Chicken and Rice Skillet</h3>
+        <p>Sauté onions, garlic, diced chicken, rice, and broth. Simmer until cooked, season with herbs or paprika.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="https://plus.unsplash.com/premium_photo-1701064865162-db655bfb998f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lentil Stir-Fry">
+      </div>
+      <div class="card-content">
+        <h3>Lentil and Veggie Stir-Fry</h3>
+        <p>Cook lentils, stir-fry onions, bell peppers, and carrots. Mix lentils with soy sauce and spices for a protein-packed meal.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1666025954339-97a97468de17?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sheet Pan Fajitas">
+      </div>
+      <div class="card-content">
+        <h3>Sheet Pan Fajitas</h3>
+        <p>Slice chicken and bell peppers, toss with oil and fajita seasoning. Roast for 20-25 minutes. Serve with tortillas and salsa.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1606492922570-ba8e55b01f5f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Baked Potato Bar">
+      </div>
+      <div class="card-content">
+        <h3>Baked Potato Bar</h3>
+        <p>Bake potatoes and top with beans, cheese, sautéed veggies, and a dollop of yogurt for a versatile, low-cost dinner.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1672856399675-8c099efbe0e2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Egg Fried Rice">
+      </div>
+      <div class="card-content">
+        <h3>Egg Fried Rice</h3>
+        <p>Use leftover rice, sauté onions and garlic, scramble eggs, then mix rice and frozen veggies. Ready in 15 minutes!</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1653107511063-42201dd9972e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Turkey Chili">
+      </div>
+      <div class="card-content">
+        <h3>Turkey or Veggie Chili</h3>
+        <p>Cook ground turkey or skip for vegetarian, add beans, tomatoes, chili powder, and simmer. Serve with rice or bread.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src=https://images.unsplash.com/photo-1723815338647-90dd65825fa5?q=80&w=997&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pasta Salad with Tuna">
+      </div>
+      <div class="card-content">
+        <h3>Pasta Salad with Tuna</h3>
+        <p>Mix cooked pasta with canned tuna, chopped veggies, olive oil, and lemon. Serve cold or at room temperature.</p>
+      </div>
+    </div>
+
+  
+  </section>
+
+</body>
+<div class="watermark">© Binishaan Basnet</div>
+</html>
