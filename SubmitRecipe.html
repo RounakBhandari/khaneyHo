@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Recipe - KhaneyHo?</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1><i class="fas fa-utensils"></i> KhaneyHo?</h1>
+                <p>Your One-Stop Recipe Destination</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="#" class="nav-link active">Submit Recipe</a></li>
+                <li><a href="#" class="nav-link">Categories</a></li>
+                <li><a href="#" class="nav-link">Tips & Tricks</a></li>
+                <li><a href="#" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h2><i class="fas fa-plus-circle"></i> Share Your Recipe</h2>
+                <p>Have a delicious recipe to share? Let's add it to our collection!</p>
+            </div>
+
+            <!-- Recipe Form -->
+            <div class="recipe-form-container">
+                <form id="recipeForm" class="recipe-form">
+                    <!-- Basic Information -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-info-circle"></i> Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="recipeTitle">Recipe Title *</label>
+                                <input type="text" id="recipeTitle" name="recipeTitle" required placeholder="e.g., Grandma's Chocolate Chip Cookies">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipeCategory">Category *</label>
+                                <select id="recipeCategory" name="recipeCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                    <option value="snacks">Snacks</option>
+                                    <option value="desserts">Desserts</option>
+                                    <option value="beverages">Beverages</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prepTime">Preparation Time (minutes) *</label>
+                                <input type="number" id="prepTime" name="prepTime" required min="1" placeholder="15">
+                            </div>
+                            <div class="form-group">
+                                <label for="cookTime">Cooking Time (minutes) *</label>
+                                <input type="number" id="cookTime" name="cookTime" required min="1" placeholder="30">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="servings">Number of Servings *</label>
+                            <input type="number" id="servings" name="servings" required min="1" placeholder="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty Level *</label>
+                            <select id="difficulty" name="difficulty" required>
+                                <option value="">Select Difficulty</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Ingredients -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-list"></i> Ingredients</h3>
+                        <div id="ingredientsList" class="ingredients-list">
+                            <div class="ingredient-item">
+                                <input type="text" name="ingredients[]" placeholder="e.g., 2 cups all-purpose flour" required>
+                                <button type="button" class="remove-ingredient" onclick="removeIngredient(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addIngredient()">
+                            <i class="fas fa-plus"></i> Add Ingredient
+                        </button>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-tasks"></i> Cooking Instructions</h3>
+                        <div id="instructionsList" class="instructions-list">
+                            <div class="instruction-item">
+                                <div class="step-number">1</div>
+                                <textarea name="instructions[]" placeholder="Describe this step in detail..." required></textarea>
+                                <button type="button" class="remove-instruction" onclick="removeInstruction(this)">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addInstruction()">
+                            <i class="fas fa-plus"></i> Add Step
+                        </button>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-edit"></i> Additional Details</h3>
+                        <div class="form-group">
+                            <label for="description">Recipe Description</label>
+                            <textarea id="description" name="description" rows="4" placeholder="Tell us about your recipe, its origin, or any special tips..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="imageUrl">Recipe Image URL (optional)</label>
+                            <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/recipe-image.jpg">
+                        </div>
+                        <div class="form-group">
+                            <label for="tags">Tags (optional)</label>
+                            <input type="text" id="tags" name="tags" placeholder="vegetarian, gluten-free, quick, healthy (separate with commas)">
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Recipe
+                        </button>
+                        <button type="reset" class="btn btn-outline">
+                            <i class="fas fa-undo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message hidden">
+                <div class="success-content">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Recipe Submitted Successfully!</h3>
+                    <p>Thank you for sharing your recipe with the KhaneyHo? community!</p>
+                    <button class="btn btn-primary" onclick="hideSuccessMessage()">Submit Another Recipe</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-utensils"></i> KhaneyHo?</h4>
+                    <p>Your One-Stop Recipe Destination</p>
+                    <p>Inspired by the Nepali phrase for "Have you eaten?"</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Tips & Tricks</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@khaneyho.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KhaneyHo?. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
