@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Foodie Recipes</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+		<style>
+			:root {
+				--brand: #f6c400; /* sunflower */
+				--brand-ink: #1a1a1a; /* near black */
+				--bg: #0f0f10; /* dark hero bg */
+				--paper: #ffffff; /* card/paper */
+				--ink: #121417; /* text */
+				--muted: #6b7280; /* muted text */
+				--chip: #f4f6f9; /* light surface */
+				--shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+				--radius-xl: 22px;
+				--radius-lg: 16px;
+				--radius-md: 12px;
+				--radius-sm: 10px;
+				--container: 1200px;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				margin: 0;
+			}
+			body {
+				font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+				color: var(--ink);
+				background: #f6f7fb;
+			}
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+			img {
+				max-width: 100%;
+				display: block;
+			}
+			.container {
+				max-width: var(--container);
+				margin-inline: auto;
+				padding-inline: 24px;
+			}
+
+			/* Header */
+			header {
+				position: sticky;
+				top: 0;
+				background: #fff;
+				backdrop-filter: saturate(180%) blur(8px);
+				z-index: 30;
+				box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+			}
+			.nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 16px;
+				padding: 14px 0;
+			}
+			.brand {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				font-weight: 800;
+			}
+			.brand .dot {
+				width: 26px;
+				height: 26px;
+				border-radius: 50%;
+				background: var(--brand);
+			}
+			.nav ul {
+				display: flex;
+				gap: 26px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.nav a.link {
+				font-weight: 600;
+				opacity: 0.85;
+			}
+			.nav a.link.active {
+				color: var(--brand-ink);
+				position: relative;
+			}
+			.nav a.link.active::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: -8px;
+				width: 100%;
+				height: 3px;
+				border-radius: 2px;
+				background: var(--brand);
+			}
+			.nav-actions {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+			.icon-btn {
+				width: 42px;
+				height: 42px;
+				border-radius: 50%;
+				display: grid;
+				place-items: center;
+				background: #f2f3f5;
+				border: 1px solid #eceef2;
+			}
+			.btn {
+				--bg: var(--brand);
+				--fg: #0f0f10;
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+				padding: 12px 18px;
+				border-radius: 999px;
+				background: var(--bg);
+				color: var(--fg);
+				font-weight: 700;
+				border: 1px solid rgba(0, 0, 0, 0.06);
+				box-shadow: var(--shadow);
+			}
+			.btn.ghost {
+				background: #fff;
+				color: #111;
+				border: 1px solid #e8e9ee;
+				box-shadow: none;
+			}
+			.menu-toggle {
+				display: none;
+			}
+
+			/* Hero */
+			.hero {
+				background: #fff;
+			}
+			.hero-wrap {
+				display: grid;
+				grid-template-columns: 1.3fr 1fr;
+				align-items: center;
+				gap: 80px;
+				padding-block: 56px;
+			}
+			.eyebrow {
+				font-size: 15px;
+				color: var(--muted);
+			}
+			.h1 {
+				font-size: 54px;
+				line-height: 1.05;
+				letter-spacing: -0.02em;
+				margin: 8px 0 16px;
+			}
+			.lead {
+				color: #4b5563;
+				max-width: 54ch;
+			}
+			.cta-row {
+				display: flex;
+				align-items: center;
+				gap: 14px;
+				margin-top: 24px;
+			}
+			.chips {
+				display: flex;
+				gap: 14px;
+				overflow: auto;
+				padding: 12px 0 4px;
+			}
+			.chip {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				padding: 10px 12px;
+				background: var(--chip);
+				border-radius: 999px;
+				border: 1px solid #eceef2;
+				white-space: nowrap;
+			}
+			.chip img {
+				width: 26px;
+				height: 26px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+			.rating {
+				font-size: 13px;
+				color: #f59e0b;
+			}
+
+			/* Phone mockups */
+			.phones {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 18px;
+				align-items: end;
+				justify-items: center;
+			}
+			.phone {
+				width: 220px;
+				height: 440px;
+				border-radius: 28px;
+				background: #0e0f12;
+				color: #eee;
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+				padding: 14px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.phone .top {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.pill {
+				height: 6px;
+				width: 90px;
+				background: #111;
+				border-radius: 999px;
+				margin: 0 auto 8px;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 10px;
+			}
+			.tile {
+				background: #14161a;
+				border: 1px solid rgba(255, 255, 255, 0.06);
+				border-radius: 12px;
+				padding: 8px;
+			}
+			.tile img {
+				border-radius: 10px;
+				height: 70px;
+				object-fit: cover;
+			}
+			.tile .t {
+				font-size: 12px;
+				margin-top: 6px;
+			}
+
+			/* Welcome split */
+			.split {
+				display: grid;
+				grid-template-columns: 1.1fr 1fr;
+				gap: 28px;
+				align-items: center;
+				margin-top: 40px;
+			}
+			.card {
+				background: #fff;
+				border: 1px solid #eceef2;
+				border-radius: var(--radius-xl);
+				box-shadow: var(--shadow);
+			}
+			.media {
+				border-radius: var(--radius-xl);
+				overflow: hidden;
+			}
+			.prose h2 {
+				font-size: 32px;
+				margin: 0 0 10px;
+			}
+			.prose p {
+				color: #4b5563;
+			}
+
+			/* Explore menu */
+			.section {
+				padding-block: 72px;
+			}
+			.section h3 {
+				font-size: 26px;
+				margin: 0 0 22px;
+				text-align: center;
+			}
+			.menu-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 18px;
+			}
+			.menu-card {
+				background: #fff;
+				border: 1px solid #eceef2;
+				border-radius: 16px;
+				overflow: hidden;
+				box-shadow: var(--shadow);
+			}
+			.menu-card img {
+				aspect-ratio: 1/1;
+				object-fit: cover;
+			}
+			.menu-card .meta {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 12px 14px;
+			}
+			.price {
+				font-weight: 800;
+			}
+
+			/* Yellow booking band */
+			.band {
+				background: var(--brand);
+				border-radius: var(--radius-xl);
+				padding: 26px 22px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 12px;
+				align-items: center;
+				justify-content: center;
+				margin-top: 28px;
+			}
+			.band .field {
+				background: #fff;
+				border: 1px solid rgba(0, 0, 0, 0.08);
+				border-radius: 999px;
+				padding: 10px 14px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			/* Popular recipes */
+			.cards {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 18px;
+			}
+			.recipe {
+				background: #fff;
+				border: 1px solid #eceef2;
+				border-radius: 16px;
+				overflow: hidden;
+				box-shadow: var(--shadow);
+			}
+			.recipe img {
+				aspect-ratio: 4/3;
+				object-fit: cover;
+			}
+			.recipe .body {
+				padding: 14px;
+			}
+
+			/* App promo (black band) */
+			.promo {
+				background: #0c0c0d;
+				border-radius: 24px;
+				color: #fff;
+				display: grid;
+				grid-template-columns: 1.1fr 0.9fr;
+				align-items: center;
+				gap: 20px;
+				padding: 28px;
+			}
+			.promo h4 {
+				font-size: 28px;
+				margin: 0 0 8px;
+			}
+			.store-row {
+				display: flex;
+				gap: 12px;
+				margin-top: 10px;
+			}
+			.store {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				background: #16181d;
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 12px;
+				padding: 10px 14px;
+			}
+
+			/* Newsletter */
+			.newsletter {
+				background: #fff;
+				border: 1px solid #eceef2;
+				border-radius: 24px;
+				text-align: center;
+				padding: 30px;
+			}
+			.newsletter h5 {
+				font-size: 22px;
+				margin: 0 0 8px;
+			}
+			.newsletter .row {
+				display: flex;
+				gap: 10px;
+				justify-content: center;
+				margin-top: 10px;
+			}
+			.input {
+				flex: 1;
+				min-width: 260px;
+				background: #f3f4f6;
+				border: 1px solid #e5e7eb;
+				border-radius: 999px;
+				padding: 12px 16px;
+			}
+
+			/* Footer */
+			footer {
+				padding-block: 50px;
+				color: #6b7280;
+			}
+			.foot {
+				display: flex;
+				justify-content: space-between;
+				gap: 20px;
+				flex-wrap: wrap;
+			}
+
+			/* Responsive */
+			@media (max-width: 1050px) {
+				.hero-wrap {
+					grid-template-columns: 1fr;
+				}
+				.phones {
+					justify-content: flex-start;
+				}
+				.split {
+					grid-template-columns: 1fr;
+				}
+				.menu-grid,
+				.cards {
+					grid-template-columns: repeat(2, 1fr);
+				}
+				.promo {
+					grid-template-columns: 1fr;
+				}
+			}
+			@media (max-width: 720px) {
+				.nav ul {
+					display: none;
+				}
+				.menu-toggle {
+					display: inline-grid;
+				}
+				.menu-open .nav ul {
+					display: flex;
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 64px;
+					background: #fff;
+					padding: 16px;
+					border-top: 1px solid #eee;
+					box-shadow: var(--shadow);
+					z-index: 20;
+				}
+				.h1 {
+					font-size: 40px;
+				}
+				.menu-grid,
+				.cards {
+					grid-template-columns: 1fr;
+				}
+			}
+      .highlights {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.highlights li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<header>
+			<div class="container nav">
+				<a class="brand" href="#">
+					<span class="dot" aria-hidden="true"></span>
+					<span>Khaney Ho?</span>
+				</a>
+				<ul>
+					<li><a class="link active" href="#home">Home</a></li>
+					<li><a class="link" href="#about">About Us</a></li>
+					<li><a class="link" href="#menu">Submit a Recipe</a></li>
+					<li><a class="link" href="#reviews">Tips and Tricks</a></li>
+					<li><a class="link" href="#reviews">Blog</a></li>
+				</ul>
+				<div class="nav-actions">
+					<a class="btn ghost" href="#login">
+						<i class="ri-user-3-line"></i>
+						Login
+					</a>
+					<button class="icon-btn menu-toggle" aria-label="Menu"><i class="ri-menu-3-line"></i></button>
+				</div>
+			</div>
+		</header>
+
+		<!-- Hero -->
+		<section id="home" class="hero">
+			<div class="container hero-wrap">
+				<div>
+					<div class="eyebrow">A tasty way to eat better</div>
+					<h1 class="h1">Good food choices are good investments.</h1>
+					<p class="lead">
+						A popular Mexican restaurant in your nearby places. We prepare and serve quality food and drinks to our
+						customers—with a sprinkle of love.
+					</p>
+					<div class="cta-row">
+						<a class="btn" href="#menu">
+							Get Started
+							<i class="ri-arrow-right-line"></i>
+						</a>
+						<a class="btn ghost" href="#video">
+							<i class="ri-play-circle-line"></i>
+							Watch video
+						</a>
+					</div>
+				</div>
+
+				<div class="phones" >
+					<div class="phone" aria-label="app preview">
+						<div>
+							<div class="pill"></div>
+							<div class="top">
+								<span><i class="ri-menu-2-line"></i></span>
+								<span>Burger</span>
+								<span><i class="ri-more-2-fill"></i></span>
+							</div>
+						</div>
+						<div class="grid">
+							<div class="tile">
+								<img
+									src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop"
+									alt="Burger"
+								/>
+								<div class="t">Cheese Burger</div>
+							</div>
+							<div class="tile">
+								<img
+									src="https://images.unsplash.com/photo-1550547660-8d08a0a62a1e?q=80&w=400&auto=format&fit=crop"
+									alt="Fries"
+								/>
+								<div class="t">Crispy Fries</div>
+							</div>
+							<div class="tile">
+								<img
+									src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop"
+									alt="Pizza"
+								/>
+								<div class="t">Mini Pizza</div>
+							</div>
+							<div class="tile">
+								<img
+									src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=400&auto=format&fit=crop"
+									alt="Shake"
+								/>
+								<div class="t">Strawberry Shake</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="phone" aria-label="offer">
+						<div>
+							<div class="pill"></div>
+							<div class="top">
+								<span>12.99</span>
+								<span>
+									<i class="ri-star-fill" style="color: #f59e0b"></i>
+									4.8
+								</span>
+							</div>
+						</div>
+						<div style="display: grid; place-items: center; gap: 8px; text-align: center">
+							<img
+								src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop"
+								alt="Burger hero"
+								style="border-radius: 16px; height: 230px; object-fit: cover"
+							/>
+							<div style="font-size: 18px; font-weight: 800">B U R G E R</div>
+							<a class="btn" href="#order">Order Now</a>
+						</div>
+						<div style="display: flex; justify-content: space-between; font-size: 12px; color: #bbb">
+							<span>Free delivery</span>
+							<span>15–25 min</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Welcome Split -->
+<section id="about" class="container split">
+  <div class="card media">
+    <img
+      src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop"
+      alt="table of food"
+    />
+  </div>
+  <div class="prose">
+    <h2>Fresh, Seasonal & Full of Flavor</h2>
+    <p>
+      At <strong>Top Trips Food</strong>, every plate tells a story of the season. 
+      We believe in cooking with the freshest local produce, 
+      so our menu changes weekly to bring you vibrant, flavorful dishes.
+    </p>
+
+    <ul class="highlights">
+      <li>🌱 Farm-to-table ingredients</li>
+      <li>🍳 Creative brunches & signature plates</li>
+      <li>🥂 Relaxed atmosphere with seasonal drinks</li>
+    </ul>
+
+    <a class="btn" href="#story">
+      Explore our story
+      <i class="ri-arrow-right-up-line"></i>
+    </a>
+  </div>
+</section>
+
+
+		<!-- Explore Our Menu -->
+		<section id="menu" class="section">
+			<div class="container">
+				<h3>Explore Our Menu</h3>
+				<div class="menu-grid">
+					<article class="menu-card">
+						<img
+							src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop"
+							alt="Pasta"
+						/>
+						<div class="meta">
+							<div>Pesto Pasta</div>
+							<div class="price">$12</div>
+						</div>
+					</article>
+					<article class="menu-card">
+						<img
+							src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop"
+							alt="Chicken"
+						/>
+						<div class="meta">
+							<div>Garlic Chicken</div>
+							<div class="price">$16</div>
+						</div>
+					</article>
+					<article class="menu-card">
+						<img
+							src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
+							alt="Pizza"
+						/>
+						<div class="meta">
+							<div>Neapolitan Pizza</div>
+							<div class="price">$15</div>
+						</div>
+					</article>
+					<article class="menu-card">
+						<img
+							src="https://images.unsplash.com/photo-1546069901-5ec6a79120b0?q=80&w=1200&auto=format&fit=crop"
+							alt="Salad"
+						/>
+						<div class="meta">
+							<div>Rainbow Salad</div>
+							<div class="price">$10</div>
+						</div>
+					</article>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- Popular Recipes -->
+		<section class="section" id="popular">
+			<div class="container">
+				<h3>Our Most Popular Recipes</h3>
+				<div class="cards">
+					<article class="recipe">
+						<img
+							src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop"
+							alt="Burger with fries"
+						/>
+						<div class="body">
+							<div style="display: flex; justify-content: space-between; align-items: center">
+								<strong>Burger with fries</strong>
+								<span class="rating">★ 4.9</span>
+							</div>
+							<p class="lead" style="margin: 8px 0 0; font-size: 14px">Smoky patty, melted cheese and crispy fries.</p>
+						</div>
+					</article>
+					<article class="recipe">
+						<img
+							src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop"
+							alt="Brownie pizza"
+						/>
+						<div class="body">
+							<div style="display: flex; justify-content: space-between; align-items: center">
+								<strong>Brownie pizza</strong>
+								<span class="rating">★ 4.8</span>
+							</div>
+							<p class="lead" style="margin: 8px 0 0; font-size: 14px">Crunchy base with a gooey chocolate top.</p>
+						</div>
+					</article>
+					<article class="recipe">
+						<img
+							src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1200&auto=format&fit=crop"
+							alt="Sushi rolls"
+						/>
+						<div class="body">
+							<div style="display: flex; justify-content: space-between; align-items: center">
+								<strong>Sushi with wasabi</strong>
+								<span class="rating">★ 4.7</span>
+							</div>
+							<p class="lead" style="margin: 8px 0 0; font-size: 14px">Fresh salmon and avocado rolls.</p>
+						</div>
+					</article>
+					<article class="recipe">
+						<img
+							src="https://images.unsplash.com/photo-1533777324565-a040eb52fac1?q=80&w=1200&auto=format&fit=crop"
+							alt="Tacos"
+						/>
+						<div class="body">
+							<div style="display: flex; justify-content: space-between; align-items: center">
+								<strong>Street tacos</strong>
+								<span class="rating">★ 4.8</span>
+							</div>
+							<p class="lead" style="margin: 8px 0 0; font-size: 14px">Carnitas with onion, cilantro and lime.</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- App Promo -->
+		<section class="section">
+			<div class="container promo">
+				<div>
+					<h4>Company name food helps you to order food more easily</h4>
+					<p class="lead" style="color: #b9c0cc">
+						Get our beautiful app and track orders, save favorites and earn rewards.
+					</p>
+					<div class="store-row">
+						<a href="#" class="store">
+							<i class="ri-apple-fill"></i>
+							<div>
+								<div style="font-size: 10px; opacity: 0.8">Download on the</div>
+								<strong>App Store</strong>
+							</div>
+						</a>
+						<a href="#" class="store">
+							<i class="ri-google-play-fill"></i>
+							<div>
+								<div style="font-size: 10px; opacity: 0.8">GET IT ON</div>
+								<strong>Google Play</strong>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+		<!-- Footer -->
+		<footer>
+			<div class="container foot">
+				<div class="brand" style="font-weight: 800">
+					<span class="dot"></span>
+					FOODIE
+				</div>
+				<div>
+					©
+					<span id="year"></span>
+					Foodie Inc. • Crafted with ♥
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// Mobile menu toggle
+			const header = document.querySelector("header");
+			document.querySelector(".menu-toggle")?.addEventListener("click", () => {
+				header.classList.toggle("menu-open");
+			});
+
+
+      
+		</script>
+	</body>
+</html>
