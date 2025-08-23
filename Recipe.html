@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Detail - Khaney Ho?</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+    :root {
+        --brand: #2c752a;
+        --bg: #f6f7fb;
+        --paper: #fff;
+        --ink: #121417;
+        --muted: #6b7280;
+        --shadow: 0 10px 30px rgba(0,0,0,0.15);
+        --radius-lg: 16px;
+        --container: 1000px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);}
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;border-radius:12px;}
+
+    .container{max-width:var(--container);margin-inline:auto;padding:24px;}
+
+    header{background:#fff;position:sticky;top:0;z-index:30;box-shadow:0 1px 0 rgba(0,0,0,0.06);}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;}
+    .brand{font-weight:800;font-size:20px;display:flex;align-items:center;gap:10px;}
+    .brand .dot{width:24px;height:24px;border-radius:50%;background:var(--brand);}
+    .nav ul{display:flex;gap:24px;list-style:none;}
+    .nav a.link{font-weight:600;opacity:0.85;}
+    .nav a.link.active{color:var(--brand);}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;border:none;cursor:pointer;}
+    .btn.ghost{background:#fff;color:var(--ink);border:1px solid #eceef2;}
+
+    .recipe-header{display:flex;gap:40px;flex-wrap:wrap;margin-top:40px;}
+    .recipe-image{flex:1;min-width:300px;}
+    .recipe-details{flex:1;min-width:300px;display:flex;flex-direction:column;gap:16px;}
+    .recipe-details h1{font-size:36px;color:var(--brand);}
+    .recipe-details p{color:#4b5563;font-size:16px;line-height:1.5;}
+    .info-row{display:flex;gap:24px;font-size:14px;color:var(--muted);}
+    .info-row div{display:flex;align-items:center;gap:6px;}
+
+    .section{margin-top:60px;}
+    .section h2{font-size:28px;color:var(--brand);margin-bottom:20px;}
+    .ingredients-list, .instructions-list{background:var(--paper);padding:24px;border-radius:var(--radius-lg);box-shadow:var(--shadow);}
+    .ingredients-list li, .instructions-list li{margin-bottom:12px;font-size:16px;color:var(--ink);}
+    .instructions-list li{counter-increment:step;}
+    .instructions-list li::before{content:counter(step) ".";font-weight:700;margin-right:10px;color:var(--brand);}
+
+    .tips{margin-top:40px;background:#f0fdf4;padding:20px 24px;border-left:4px solid var(--brand);border-radius:12px;color:#065f46;}
+    
+    .back-btn{margin-top:40px;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--brand);}
+    
+    @media(max-width:900px){.recipe-header{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <a class="brand" href="#"><span class="dot"></span>Khaney Ho?</a>
+        <ul>
+            <li><a class="link" href="index.html">Home</a></li>
+            <li><a class="link active" href="Recipe.html">Recipe</a></li>
+            <li><a class="link" href="about.html">About Us</a></li>
+            <li><a class="link" href="SubmitRecipe.html">Submit a Recipe</a></li>
+            <li><a class="link" href="tipsandtricks.html">Tips and Tricks</a></li>
+            <li><a class="link" href="blog.html">Blog</a></li>
+        </ul>
+        <button class="btn ghost">Login</button>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="recipe-header">
+        <div class="recipe-image">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800&auto=format&fit=crop" alt="Cheese Burger">
+        </div>
+        <div class="recipe-details">
+            <h1>Cheese Burger</h1>
+            <p>Juicy beef patty topped with cheddar cheese, fresh lettuce, tomato, and our special sauce served in a toasted bun. Perfect for a quick lunch or a tasty dinner.</p>
+            <div class="info-row">
+                <div><i class="ri-user-3-line"></i>Serves: 2</div>
+                <div><i class="ri-timer-line"></i>Prep: 15 mins</div>
+                <div><i class="ri-time-line"></i>Cook: 10 mins</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Ingredients</h2>
+        <ul class="ingredients-list">
+            <li>2 beef patties</li>
+            <li>2 slices cheddar cheese</li>
+            <li>2 burger buns, toasted</li>
+            <li>Lettuce leaves</li>
+            <li>2 slices tomato</li>
+            <li>1 tbsp mayonnaise</li>
+            <li>Salt & pepper to taste</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Instructions</h2>
+        <ol class="instructions-list">
+            <li>Season the beef patties with salt and pepper.</li>
+            <li>Grill patties on medium heat for 4-5 mins per side.</li>
+            <li>Place cheddar slices on patties while hot to melt.</li>
+            <li>Toast the burger buns lightly.</li>
+            <li>Assemble burger: bun, lettuce, patty, tomato, sauce, top bun.</li>
+            <li>Serve immediately and enjoy!</li>
+        </ol>
+    </div>
+
+    <div class="tips">
+        <strong>Chef’s Tip:</strong> Use fresh vegetables for crunch and melt cheese slightly under a broiler for perfect texture.
+    </div>
+
+    <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i>Back to Home</a>
+
+</div>
+
+</body>
+</html>
