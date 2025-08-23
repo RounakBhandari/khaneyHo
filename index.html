@@ -13,13 +13,13 @@
 		<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 		<style>
 			:root {
-				--brand: #f6c400; /* sunflower */
-				--brand-ink: #1a1a1a; /* near black */
-				--bg: #0f0f10; /* dark hero bg */
-				--paper: #ffffff; /* card/paper */
-				--ink: #121417; /* text */
-				--muted: #6b7280; /* muted text */
-				--chip: #f4f6f9; /* light surface */
+				--brand: #2c752a; /* forest green */
+				--brand-ink: #1a1a1a;
+				--bg: #0f0f10;
+				--paper: #ffffff;
+				--ink: #121417;
+				--muted: #6b7280;
+				--chip: #f4f6f9;
 				--shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 				--radius-xl: 22px;
 				--radius-lg: 16px;
@@ -122,7 +122,7 @@
 			}
 			.btn {
 				--bg: var(--brand);
-				--fg: #0f0f10;
+				--fg: #fff;
 				display: inline-flex;
 				align-items: center;
 				gap: 10px;
@@ -164,6 +164,7 @@
 				line-height: 1.05;
 				letter-spacing: -0.02em;
 				margin: 8px 0 16px;
+				color: var(--brand);
 			}
 			.lead {
 				color: #4b5563;
@@ -199,7 +200,7 @@
 			}
 			.rating {
 				font-size: 13px;
-				color: #f59e0b;
+				color: #3fa34d; /* lighter green */
 			}
 
 			/* Phone mockups */
@@ -276,6 +277,7 @@
 			.prose h2 {
 				font-size: 32px;
 				margin: 0 0 10px;
+				color: var(--brand);
 			}
 			.prose p {
 				color: #4b5563;
@@ -289,6 +291,7 @@
 				font-size: 26px;
 				margin: 0 0 22px;
 				text-align: center;
+				color: var(--brand);
 			}
 			.menu-grid {
 				display: grid;
@@ -314,9 +317,10 @@
 			}
 			.price {
 				font-weight: 800;
+				color: var(--brand);
 			}
 
-			/* Yellow booking band */
+			/* Green booking band */
 			.band {
 				background: var(--brand);
 				border-radius: var(--radius-xl);
@@ -373,6 +377,7 @@
 			.promo h4 {
 				font-size: 28px;
 				margin: 0 0 8px;
+				color: var(--brand);
 			}
 			.store-row {
 				display: flex;
@@ -400,6 +405,7 @@
 			.newsletter h5 {
 				font-size: 22px;
 				margin: 0 0 8px;
+				color: var(--brand);
 			}
 			.newsletter .row {
 				display: flex;
@@ -474,21 +480,19 @@
 					grid-template-columns: 1fr;
 				}
 			}
-      .highlights {
-  margin: 20px 0;
-  padding: 0;
-  list-style: none;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.highlights li {
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
+			.highlights {
+				margin: 20px 0;
+				padding: 0;
+				list-style: none;
+				font-size: 16px;
+				line-height: 1.8;
+			}
+			.highlights li {
+				margin-bottom: 8px;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
 		</style>
 	</head>
 	<body>
@@ -501,10 +505,10 @@
 				</a>
 				<ul>
 					<li><a class="link active" href="#home">Home</a></li>
-					<li><a class="link" href="#about">About Us</a></li>
+					<li><a class="link" href="about.html">About Us</a></li>
 					<li><a class="link" href="#menu">Submit a Recipe</a></li>
-					<li><a class="link" href="#reviews">Tips and Tricks</a></li>
-					<li><a class="link" href="#reviews">Blog</a></li>
+					<li><a class="link" href="tipsandtricks.html">Tips and Tricks</a></li>
+					<li><a class="link" href="blog.html">Blog</a></li>
 				</ul>
 				<div class="nav-actions">
 					<a class="btn ghost" href="#login">
@@ -538,7 +542,7 @@
 					</div>
 				</div>
 
-				<div class="phones" >
+				<div class="phones">
 					<div class="phone" aria-label="app preview">
 						<div>
 							<div class="pill"></div>
@@ -586,7 +590,7 @@
 							<div class="top">
 								<span>12.99</span>
 								<span>
-									<i class="ri-star-fill" style="color: #f59e0b"></i>
+									<i class="ri-star-fill" style="color: #3fa34d"></i>
 									4.8
 								</span>
 							</div>
@@ -610,34 +614,32 @@
 		</section>
 
 		<!-- Welcome Split -->
-<section id="about" class="container split">
-  <div class="card media">
-    <img
-      src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop"
-      alt="table of food"
-    />
-  </div>
-  <div class="prose">
-    <h2>Fresh, Seasonal & Full of Flavor</h2>
-    <p>
-      At <strong>Top Trips Food</strong>, every plate tells a story of the season. 
-      We believe in cooking with the freshest local produce, 
-      so our menu changes weekly to bring you vibrant, flavorful dishes.
-    </p>
+		<section id="about" class="container split">
+			<div class="card media">
+				<img
+					src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop"
+					alt="table of food"
+				/>
+			</div>
+			<div class="prose">
+				<h2>Fresh, Seasonal & Full of Flavor</h2>
+				<p>
+					At <strong>Top Trips Food</strong>, every plate tells a story of the season. We believe in cooking with the
+					freshest local produce, so our menu changes weekly to bring you vibrant, flavorful dishes.
+				</p>
 
-    <ul class="highlights">
-      <li>🌱 Farm-to-table ingredients</li>
-      <li>🍳 Creative brunches & signature plates</li>
-      <li>🥂 Relaxed atmosphere with seasonal drinks</li>
-    </ul>
+				<ul class="highlights">
+					<li>🌱 Farm-to-table ingredients</li>
+					<li>🍳 Creative brunches & signature plates</li>
+					<li>🥂 Relaxed atmosphere with seasonal drinks</li>
+				</ul>
 
-    <a class="btn" href="#story">
-      Explore our story
-      <i class="ri-arrow-right-up-line"></i>
-    </a>
-  </div>
-</section>
-
+				<a class="btn" href="#story">
+					Explore our story
+					<i class="ri-arrow-right-up-line"></i>
+				</a>
+			</div>
+		</section>
 
 		<!-- Explore Our Menu -->
 		<section id="menu" class="section">
@@ -685,7 +687,6 @@
 						</div>
 					</article>
 				</div>
-
 			</div>
 		</section>
 
@@ -778,8 +779,6 @@
 			</div>
 		</section>
 
-
-
 		<!-- Footer -->
 		<footer>
 			<div class="container foot">
@@ -801,9 +800,6 @@
 			document.querySelector(".menu-toggle")?.addEventListener("click", () => {
 				header.classList.toggle("menu-open");
 			});
-
-
-      
 		</script>
 	</body>
 </html>
